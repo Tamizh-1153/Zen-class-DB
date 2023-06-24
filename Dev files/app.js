@@ -8,13 +8,11 @@ const companyDrives = require("./models/companyDrives")
 const Attendance = require("./models/attendance")
 const Codekata = require("./models/codekata")
 const Mentors = require("./models/mentor")
+require('dotenv').config()
 
 const start = async () => {
   try {
-    await mongoose.connect(
-      "mongodb+srv://tamizh1153:abcd123@cluster0.eojvxoa.mongodb.net/Zen-database",
-      { useNewUrlParser: true, useUnifiedTopology: true }
-    )
+    await mongoose.connect(process.env.MONGO_URI)
     app.listen(5000, () => {
       console.log("Server is listening on port 5000...")
     })
