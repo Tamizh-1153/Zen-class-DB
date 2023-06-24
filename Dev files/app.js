@@ -9,10 +9,11 @@ const Attendance = require("./models/attendance")
 const Codekata = require("./models/codekata")
 const Mentors = require("./models/mentor")
 require('dotenv').config()
+const connectDB=require('./db/connectDB')
 
 const start = async () => {
   try {
-    await mongoose.connect(process.env.MONGO_URI)
+    await connectDB(process.env.MONGO_URI)
     app.listen(5000, () => {
       console.log("Server is listening on port 5000...")
     })
